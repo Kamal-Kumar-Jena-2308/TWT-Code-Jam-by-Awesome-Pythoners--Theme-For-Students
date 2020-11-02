@@ -18,7 +18,8 @@ try:
 
 
     def Game():
-
+        pygame.init()
+        pygame.mixer.init()
         ScreenW = 500
         ScreenH = 500
         FPS = 60
@@ -27,9 +28,9 @@ try:
         window = pygame.display.set_mode((ScreenW, ScreenH))
         pygame.display.set_caption("Snakes - Made By :- Kamal Kumar Jena")
         pygame.display.update()
-        font = pygame.font.SysFont("comicsans", 28)
+        font = pygame.font.SysFont("comicsanms", 28)
         font1 = pygame.font.SysFont("Showcard Gothic", 69)
-        font2 = pygame.font.SysFont("comicsans", 48)
+        font2 = pygame.font.SysFont("comicsanms", 48)
         white = (255, 255, 255)
         black = (0, 0, 0)
         kuch_bhi = (255, 0, 0)
@@ -112,7 +113,7 @@ try:
                 else:
                     for event in pygame.event.get():
                         if snakeX + 8 > ScreenW or snakeX - 5 < 0 or snakeY + 8 > ScreenH or snakeY - 2 < 0:
-                            pygame.mixer.music.load('sounds\\hit.wav')
+                            pygame.mixer.music.load('sounds\\hit.mp3')
                             pygame.mixer.music.play()
                             Gameover = True
                         if event.type == pygame.QUIT:
@@ -197,7 +198,7 @@ try:
                     if len(snkList) > snkLen:
                         del (snkList[0])
                     if head in snkList[:-1]:
-                        pygame.mixer.music.load('sounds\\hit.wav')
+                        pygame.mixer.music.load('sounds\\hit.mp3')
                         pygame.mixer.music.play()
                         Gameover = True
                 clock.tick(FPS)
@@ -213,7 +214,7 @@ try:
             window.blit(maina, (0, 0))
             # window.blit(mainS, (100, 50))
             # window.blit(mainst, (100,250))
-            pygame.mixer.music.load('sounds\\title.wav')
+            pygame.mixer.music.load('sounds\\title.mp3')
             pygame.mixer.music.play(-1)
             while not exitGame:
                 score_shower1("SNAKES", kuch_bhi, 220, 200)
@@ -230,7 +231,7 @@ try:
                         exitGame = True
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_SPACE:
-                            pygame.mixer.music.load('sounds\\back.wav')
+                            pygame.mixer.music.load('sounds\\back.mp3')
                             pygame.mixer.music.play(-1)
                             gameloop()
                 clock.tick(FPS)
@@ -238,6 +239,7 @@ try:
             pygame.quit()
             return main()
 
+        # 'sounds\\eat.mp3'
         welcome()
         gameloop()
 
