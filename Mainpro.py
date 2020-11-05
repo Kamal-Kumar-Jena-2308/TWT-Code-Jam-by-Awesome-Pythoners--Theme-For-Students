@@ -249,6 +249,7 @@ try:
 
     def wiki():
         window = tk.Toplevel()
+        window.title("Student's Helper  -Wikipedia")
         window.wm_iconbitmap("Logo.ico")
         img1 = Image.open("pictures//Wimg.jpg")
         img = img1.resize((600, 500), Image.ANTIALIAS)
@@ -268,9 +269,6 @@ try:
             b1.place(x=525, y=138)
             wiki1 = Text(window, bg="#C0C0C0", borderwidth=3, font="lucida 12")
             wiki1.place(x=50, y=227, width=500, height=250)
-            # examples = Text(window, bg="#B9D9EB", borderwidth=3, font="lucida 12")
-            # examples.place(x=245, y=303, width=300, height=60)
-            # global word
             word1 = word.get()
             output = wikipedia.summary(f"{word1}", sentences=3)
             output1 = output.capitalize()
@@ -284,6 +282,7 @@ try:
 
     def Dicitionary():
         window = tk.Toplevel()
+        window.title("Student's Helper  -Dictionary")
         window.wm_iconbitmap("Logo.ico")
         img = Image.open("pictures//Dictimg.jpg")
         img.load()
@@ -349,7 +348,7 @@ try:
 
     root = Tk()
 
-
+    root.title("Student's Helper")
     def main():
         root.wm_iconbitmap("Logo.ico")
         image = Image.open("pictures//MainScr.jpg")
